@@ -1,0 +1,5 @@
+{
+  "name": "Triad Evolution Simulator",
+  "description": "A game theory simulation exploring the evolutionary stability of 3-parent reproductive systems versus 2-parent systems.",
+  "requestFramePermissions": []
+}
