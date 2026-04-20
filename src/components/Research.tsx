@@ -1,97 +1,119 @@
 import React from 'react';
-import { BookOpen, HelpCircle, Zap, ShieldAlert, Users } from 'lucide-react';
+import { BookOpen, HelpCircle, Zap, ShieldAlert, Users, Target } from 'lucide-react';
 
 export default function Research() {
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-8">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">Research & Theoretical Framework</h1>
-        <p className="text-slate-500 text-lg">Exploring the evolutionary stability of multi-parent reproductive systems.</p>
+    <div className="max-w-4xl mx-auto p-6 space-y-12">
+      <header className="space-y-4 text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-wider">
+          Theoretical Framework
+        </div>
+        <h1 className="text-4xl font-bold tracking-tight text-slate-900">The Tri-parental Paradox</h1>
+        <p className="text-slate-500 text-xl max-w-2xl mx-auto">
+          Why does sexual reproduction stop at two? Exploring the game theory of genetic contribution.
+        </p>
       </header>
 
-      <section className="grid md:grid-cols-2 gap-6">
-        <div className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm space-y-4">
-          <div className="flex items-center gap-2 text-indigo-600 font-semibold">
-            <BookOpen className="w-5 h-5" />
-            <h2>Existing Literature</h2>
-          </div>
-          <ul className="space-y-3 text-sm text-slate-600">
-            <li>
-              <strong className="text-slate-900">Anisogamy Evolution (PBS Model):</strong> 
-              Parker, Baker, and Smith (1972) explained why two sexes (large eggs, small sperm) are stable. 
-              Intermediate gametes are outcompeted by specialists.
-            </li>
-            <li>
-              <strong className="text-slate-900">Mating Types:</strong> 
-              Many fungi have thousands of mating types, but reproduction is almost always binary. 
-              Why? To minimize mitochondrial conflict and search costs.
-            </li>
-          </ul>
+      {/* Featured Paper Section */}
+      <section className="p-8 bg-white rounded-2xl border-2 border-indigo-100 shadow-xl shadow-indigo-50/50 space-y-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-4 opacity-5">
+          <BookOpen className="w-32 h-32" />
         </div>
-
-        <div className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm space-y-4">
-          <div className="flex items-center gap-2 text-amber-600 font-semibold">
-            <ShieldAlert className="w-5 h-5" />
-            <h2>The "Cheater" Problem</h2>
+        <div className="flex items-center gap-3 text-indigo-600 font-bold">
+          <Target className="w-6 h-6" />
+          <h2 className="text-lg uppercase tracking-widest">Key Literature</h2>
+        </div>
+        <div className="space-y-4">
+          <h3 className="text-2xl font-serif italic text-slate-800">"Why Sex? and Why Only in Pairs?"</h3>
+          <p className="text-sm text-slate-500 font-medium">Perry, Reny, & Robson (2015)</p>
+          <div className="prose prose-slate max-w-none">
+            <p className="text-slate-600 leading-relaxed">
+              The authors argue that a successful theory of sex must satisfy a specific constraint: 
+              <span className="text-indigo-600 font-semibold"> It must confer an advantage to biparental sex over asexual reproduction without conferring an even greater advantage to triparental sex.</span>
+            </p>
+            <blockquote className="border-l-4 border-indigo-200 pl-4 italic text-slate-500 text-sm">
+              "To distinguish between theories, we ask: Why are there no triparental species with offspring composed of the genetic material of three individuals?"
+            </blockquote>
           </div>
-          <p className="text-sm text-slate-600">
-            In a 3-parent system, each parent contributes 33.3% DNA. 
-            If two individuals "cheat" and form a pair, they contribute 50% DNA each.
-          </p>
-          <div className="p-3 bg-amber-50 rounded-lg border border-amber-100 text-xs text-amber-800 font-mono">
-            Fitness(Triad) = 0.33 * F_triad <br />
-            Fitness(Pair) = 0.50 * F_pair
-          </div>
-          <p className="text-xs text-slate-500 italic">
-            Unless F_triad is at least 1.5x greater than F_pair, the pair strategy is mathematically superior.
-          </p>
         </div>
       </section>
 
-      <section className="p-6 bg-slate-900 rounded-xl text-white space-y-6">
-        <div className="flex items-center gap-2 font-semibold text-indigo-400">
-          <HelpCircle className="w-5 h-5" />
-          <h2>Clarifying Questions for Simulation Design</h2>
+      <div className="grid md:grid-cols-2 gap-8">
+        {/* Theory Comparison */}
+        <div className="p-6 bg-slate-50 rounded-xl border border-slate-200 space-y-4">
+          <div className="flex items-center gap-2 text-slate-900 font-bold uppercase tracking-tight">
+            <Zap className="w-5 h-5 text-amber-500" />
+            <h2>The Two Leading Theories</h2>
+          </div>
+          <div className="space-y-4">
+            <div className="p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
+              <h4 className="font-bold text-slate-800 text-sm mb-1">1. Red Queen (Parasite Resistance)</h4>
+              <p className="text-xs text-slate-600">Genetic diversity helps stay ahead of evolving parasites. If diversity is the goal, 3 parents should be better than 2.</p>
+            </div>
+            <div className="p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
+              <h4 className="font-bold text-slate-800 text-sm mb-1">2. Mutational (Purging Bad Genes)</h4>
+              <p className="text-xs text-slate-600">Sex helps combine and eliminate deleterious mutations. The paper suggests this theory might better explain the "Pair" limit.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* The Cheater Problem */}
+        <div className="p-6 bg-rose-50 rounded-xl border border-rose-100 space-y-4">
+          <div className="flex items-center gap-2 text-rose-900 font-bold uppercase tracking-tight">
+            <ShieldAlert className="w-5 h-5 text-rose-500" />
+            <h2>The Selfish Imperative</h2>
+          </div>
+          <p className="text-sm text-rose-800/80 leading-relaxed">
+            In a triad, each parent gets <span className="font-bold">33%</span> of their DNA in the offspring. 
+            A "cheater" mutation that allows two individuals to exclude the third and split DNA <span className="font-bold">50/50</span> 
+            creates a massive fitness boost for those two individuals.
+          </p>
+          <div className="p-4 bg-white/50 rounded-lg border border-rose-200 font-mono text-xs text-rose-900">
+            Fitness_Gain = (0.50 / 0.33) - 1 = +51.5%
+          </div>
+          <p className="text-xs text-rose-700 italic">
+            Unless the triad offspring is 1.5x more likely to survive than a pair offspring, the triad is evolutionarily unstable.
+          </p>
+        </div>
+      </div>
+
+      <section className="p-8 bg-slate-900 rounded-2xl text-white space-y-8">
+        <div className="flex items-center gap-3 font-bold text-indigo-400 uppercase tracking-widest">
+          <HelpCircle className="w-6 h-6" />
+          <h2>Simulation Objectives</h2>
         </div>
         
-        <div className="grid gap-4">
-          <QuestionItem 
-            icon={<Users className="w-4 h-4" />}
+        <div className="grid sm:grid-cols-3 gap-6">
+          <ObjectiveCard 
+            icon={<Users className="w-5 h-5" />}
+            title="Stability Test"
+            desc="Can a triad population resist a 'Pair' mutation?"
+          />
+          <ObjectiveCard 
+            icon={<Zap className="w-5 h-5" />}
+            title="Theory Toggle"
+            desc="Compare Red Queen vs Mutational outcomes."
+          />
+          <ObjectiveCard 
+            icon={<Target className="w-5 h-5" />}
             title="Search Costs"
-            desc="How do individuals find each other? Is finding 2 partners significantly harder than finding 1? (Search cost p³ vs p²)"
-          />
-          <QuestionItem 
-            icon={<Zap className="w-4 h-4" />}
-            title="Resource Contribution"
-            desc="Does the 3rd parent provide extra resources (food, protection) that significantly increase offspring survival?"
-          />
-          <QuestionItem 
-            icon={<ShieldAlert className="w-4 h-4" />}
-            title="Gamete Specialization"
-            desc="Are there 3 distinct 'sexes' (e.g., Egg-layer, Sperm-A, Sperm-B) or is it a symmetric 3-way merger?"
+            desc="Model the difficulty of finding 3 vs 2 partners."
           />
         </div>
       </section>
-
-      <div className="flex justify-center p-8">
-        <div className="text-center space-y-4">
-          <p className="text-slate-600 max-w-md">
-            "We aren't just reinventing the wheel; we're testing if a three-wheeled car can outrun a bicycle in a world where everyone wants to keep as much of the car as possible."
-          </p>
-        </div>
-      </div>
     </div>
   );
 }
 
-function QuestionItem({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
+function ObjectiveCard({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
   return (
-    <div className="flex gap-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700">
-      <div className="mt-1 text-indigo-400">{icon}</div>
-      <div className="space-y-1">
-        <h3 className="font-medium text-slate-100">{title}</h3>
-        <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
+    <div className="space-y-3">
+      <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-indigo-400 border border-slate-700">
+        {icon}
       </div>
+      <h3 className="font-bold text-slate-100 text-sm">{title}</h3>
+      <p className="text-xs text-slate-400 leading-relaxed">{desc}</p>
     </div>
   );
 }
+
